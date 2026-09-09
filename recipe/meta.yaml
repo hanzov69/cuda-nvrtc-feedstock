@@ -13,6 +13,10 @@
 {% set target_name = "arm64" %}  # [win and arm64]
 {% set extension = "tar.xz" %}  # [not win]
 {% set extension = "zip" %}  # [win]
+{% set sha256 = "fe5de48fa0eb8aaf3f72cb2a86f913c727bf684f9d59072d359285dde32de783" %}  # [linux64]
+{% set sha256 = "f20e869d3524c7871bea7bab969bfe13084373352efd165216b0bdc771777b9b" %}  # [aarch64]
+{% set sha256 = "cfbc01669d2059b7fdeff242082223d23bd6a7605bc398bdc77fc77de5c310f0" %}  # [win64]
+{% set sha256 = "0ec1a6746f552284430a92a58d1aabc91210947db0923bcac6a8d928b7c536fd" %}  # [win and arm64]
 
 package:
   name: {{ name|lower }}-split
@@ -20,10 +24,7 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvrtc/{{ platform }}/cuda_nvrtc-{{ platform }}-{{ version }}-archive.{{ extension }}
-  sha256: fe5de48fa0eb8aaf3f72cb2a86f913c727bf684f9d59072d359285dde32de783  # [linux64]
-  sha256: f20e869d3524c7871bea7bab969bfe13084373352efd165216b0bdc771777b9b  # [aarch64]
-  sha256: cfbc01669d2059b7fdeff242082223d23bd6a7605bc398bdc77fc77de5c310f0  # [win64]
-  sha256: 0ec1a6746f552284430a92a58d1aabc91210947db0923bcac6a8d928b7c536fd  # [win and arm64]
+  sha256: {{ sha256 }}
 
 build:
   number: 0
